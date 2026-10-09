@@ -329,6 +329,16 @@
         <param index="7">Empty</param>
       </entry>
       <!-- 43003 MAV_CMD_EXTERNAL_POSITION_ESTIMATE moved to common.xml -->
+      <entry value="50000" name="MAV_CMD_DO_MOUNT_RANGEFINDER_ENABLE" hasLocation="false" isDestination="false">
+        <description>Enable or disable the rangefinder of a camera mount/gimbal. The resulting state is reported in MOUNT_RANGEFINDER_STATUS.</description>
+        <param index="1" label="ID">Onboard ID of the sensor, as reported in the id field of MOUNT_RANGEFINDER_STATUS.</param>
+        <param index="2" label="Enable" minValue="0" maxValue="1" increment="1">0: disable, 1: enable.</param>
+        <param index="3">Empty.</param>
+        <param index="4">Empty.</param>
+        <param index="5">Empty.</param>
+        <param index="6">Empty.</param>
+        <param index="7">Empty.</param>
+      </entry>
     </enum>
     <enum name="SCRIPTING_CMD">
       <entry value="0" name="SCRIPTING_CMD_REPL_START">
