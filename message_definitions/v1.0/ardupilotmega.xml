@@ -349,6 +349,16 @@
         <param index="6">Empty.</param>
         <param index="7">Empty.</param>
       </entry>
+      <entry value="50002" name="MAV_CMD_CAMERA_REGION_TEMPERATURE" hasLocation="false" isDestination="false">
+        <description>TBD. The result is sent in CAMERA_REGION_TEMPERATURE.</description>
+        <param index="1" label="Top left corner x" minValue="0" maxValue="1">Top left corner of rectangle x value (normalized 0..1, 0 is left, 1 is right).</param>
+        <param index="2" label="Top left corner y" minValue="0" maxValue="1">Top left corner of rectangle y value (normalized 0..1, 0 is top, 1 is bottom).</param>
+        <param index="3" label="Bottom right corner x" minValue="0" maxValue="1">Bottom right corner of rectangle x value (normalized 0..1, 0 is left, 1 is right).</param>
+        <param index="4" label="Bottom right corner y" minValue="0" maxValue="1">Bottom right corner of rectangle y value (normalized 0..1, 0 is top, 1 is bottom).</param>
+        <param index="5">Empty.</param>
+        <param index="6">Empty.</param>
+        <param index="7">Empty.</param>
+      </entry>
     </enum>
     <enum name="SCRIPTING_CMD">
       <entry value="0" name="SCRIPTING_CMD_REPL_START">
@@ -2133,6 +2143,21 @@
       <field type="float" name="x">Point X (normalized 0 to 1, 0 is left, 1 is right).</field>
       <field type="float" name="y">Point Y (normalized 0 to 1, 0 is top, 1 is bottom).</field>
       <field type="float" name="temperature" units="degC">Temperature at the point(X,Y).</field>
+    </message>
+    <message id="14003" name="CAMERA_REGION_TEMPERATURE">
+      <description>TBD</description>
+      <field type="uint32_t" name="time_boot_ms" units="ms">Timestamp (time since system boot).</field>
+      <field type="uint8_t" name="camera_device_id" default="0" minValue="0" maxValue="6">Camera id of a non-MAVLink camera attached to an autopilot (1-6).  0 if the component is a MAVLink camera (with its own component id).</field>
+      <field type="float" name="top_left_x">Measured rectangle top left corner x as reported by the camera (normalized 0..1, 0 is left, 1 is right).</field>
+      <field type="float" name="top_left_y">Measured rectangle top left corner y as reported by the camera (normalized 0..1, 0 is top, 1 is bottom).</field>
+      <field type="float" name="bottom_right_x">Measured rectangle bottom right corner x as reported by the camera (normalized 0..1, 0 is left, 1 is right).</field>
+      <field type="float" name="bottom_right_y">Measured rectangle bottom right corner y as reported by the camera (normalized 0..1, 0 is top, 1 is bottom).</field>
+      <field type="float" name="max" units="degC">Temperature max within the region.</field>
+      <field type="float" name="max_point_x">Temperature max point x value (normalized 0..1, 0 is left, 1 is right).</field>
+      <field type="float" name="max_point_y">Temperature max point y value (normalized 0..1, 0 is top, 1 is bottom).</field>
+      <field type="float" name="min" units="degC">Temperature min within the region.</field>
+      <field type="float" name="min_point_x">Temperature min point x value (normalized 0..1, 0 is left, 1 is right).</field>
+      <field type="float" name="min_point_y">Temperature min point y value (normalized 0..1, 0 is top, 1 is bottom).</field>
     </message>
   </messages>
 </mavlink>
