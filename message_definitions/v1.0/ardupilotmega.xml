@@ -339,6 +339,16 @@
         <param index="6">Empty.</param>
         <param index="7">Empty.</param>
       </entry>
+      <entry value="50001" name="MAV_CMD_CAMERA_POINT_TEMPERATURE" hasLocation="false" isDestination="false">
+        <description>TBD. The result is sent in CAMERA_POINT_TEMPERATURE.</description>
+        <param index="1" label="Point x" minValue="0" maxValue="1">Point X (normalized 0 to 1, 0 is left, 1 is right).</param>
+        <param index="2" label="Point y" minValue="0" maxValue="1">Point Y (normalized 0 to 1, 0 is top, 1 is bottom).</param>
+        <param index="3">Empty.</param>
+        <param index="4">Empty.</param>
+        <param index="5">Empty.</param>
+        <param index="6">Empty.</param>
+        <param index="7">Empty.</param>
+      </entry>
     </enum>
     <enum name="SCRIPTING_CMD">
       <entry value="0" name="SCRIPTING_CMD_REPL_START">
@@ -2115,6 +2125,14 @@
       <field type="uint32_t" name="time_boot_ms" units="ms">Timestamp (time since system boot).</field>
       <field type="uint8_t" name="id" instance="true">Onboard ID of the sensor.</field>
       <field type="uint8_t" name="enabled">Rangefinder state as reported by the mount. 0: disabled, 1: enabled.</field>
+    </message>
+    <message id="14002" name="CAMERA_POINT_TEMPERATURE">
+      <description>TBD</description>
+      <field type="uint32_t" name="time_boot_ms" units="ms">Timestamp (time since system boot).</field>
+      <field type="uint8_t" name="camera_device_id" default="0" minValue="0" maxValue="6">Camera id of a non-MAVLink camera attached to an autopilot (1-6).  0 if the component is a MAVLink camera (with its own component id).</field>
+      <field type="float" name="x">Point X (normalized 0 to 1, 0 is left, 1 is right).</field>
+      <field type="float" name="y">Point Y (normalized 0 to 1, 0 is top, 1 is bottom).</field>
+      <field type="float" name="temperature" units="degC">Temperature at the point(X,Y).</field>
     </message>
   </messages>
 </mavlink>
